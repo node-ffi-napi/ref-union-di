@@ -1,8 +1,8 @@
 
 var assert = require('assert')
   , ref = require('ref')
-  , Struct = require('ref-struct')
-  , Union = require('../')
+  , Struct = require('ref-struct-di')(ref)
+  , Union = require('../')(ref)
   , bindings = require('bindings')({ module_root: __dirname, bindings: 'native_tests' })
 
 describe('Union', function () {

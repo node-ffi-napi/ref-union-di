@@ -2,11 +2,11 @@ ref-union-di
 ============
 ### Create ABI-compliant "[union][]" instances on top of Buffers
 
-+[![NPM Version](https://img.shields.io/npm/v/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
-+[![NPM Downloads](https://img.shields.io/npm/dm/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
-+[![Build Status](https://travis-ci.org/node-ffi-napi/ref-union-di.svg?style=flat&branch=latest)](https://travis-ci.org/node-ffi-napi/ref-union-di?branch=latest)
-+[![Coverage Status](https://coveralls.io/repos/node-ffi-napi/ref-union-di/badge.svg?branch=latest)](https://coveralls.io/r/node-ffi-napi/ref-union-di?branch=latest)
-+[![Dependency Status](https://david-dm.org/node-ffi-napi/ref-union-di.svg?style=flat)](https://david-dm.org/node-ffi-napi/ref-union-di)
+[![NPM Version](https://img.shields.io/npm/v/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
+[![NPM Downloads](https://img.shields.io/npm/dm/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
+[![Build Status](https://travis-ci.org/node-ffi-napi/ref-union-di.svg?style=flat&branch=latest)](https://travis-ci.org/node-ffi-napi/ref-union-di?branch=latest)
+[![Coverage Status](https://coveralls.io/repos/node-ffi-napi/ref-union-di/badge.svg?branch=latest)](https://coveralls.io/r/node-ffi-napi/ref-union-di?branch=latest)
+[![Dependency Status](https://david-dm.org/node-ffi-napi/ref-union-di.svg?style=flat)](https://david-dm.org/node-ffi-napi/ref-union-di)
 
 **Note**: The only difference to `ref-union` is that this module takes its
 dependency on `ref` via dependency injection, so that it is easier to use

@@ -2,6 +2,8 @@ ref-union-di
 ============
 ### Create ABI-compliant "[union][]" instances on top of Buffers
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/node-ffi-napi/ref-union-di.svg)](https://greenkeeper.io/)
+
 [![NPM Version](https://img.shields.io/npm/v/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
 [![NPM Downloads](https://img.shields.io/npm/dm/ref-union-di.svg?style=flat)](https://npmjs.org/package/ref-union-di)
 [![Build Status](https://travis-ci.org/node-ffi-napi/ref-union-di.svg?style=flat&branch=latest)](https://travis-ci.org/node-ffi-napi/ref-union-di?branch=latest)

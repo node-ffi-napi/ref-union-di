@@ -1,11 +1,11 @@
 #include <stdlib.h>
-#include "nan.h"
+#include "napi.h"
 
 #ifdef _WIN32
   #define __alignof__ __alignof
 #endif
 
-using namespace node;
+using namespace Napi;
 
 namespace {
 
@@ -58,54 +58,55 @@ typedef union _test8 {
 } test8;
 
 
-void Initialize(v8::Handle<v8::Object> target) {
-  Nan::HandleScope scope;
+Object Initialize(Env env, Object exports) {
 
-  Nan::Set(target, Nan::New<v8::String>("test1 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test1)));
-  Nan::Set(target, Nan::New<v8::String>("test1 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test1)));
-  Nan::Set(target, Nan::New<v8::String>("test1 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test1, a)));
-  Nan::Set(target, Nan::New<v8::String>("test1 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test1, b)));
+  exports.Set("test1 sizeof", sizeof(test1));
+  exports.Set("test1 alignof", __alignof__(test1));
+  exports.Set("test1 offsetof a", offsetof(test1, a));
+  exports.Set("test1 offsetof b", offsetof(test1, b));
 
-  Nan::Set(target, Nan::New<v8::String>("test2 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test2)));
-  Nan::Set(target, Nan::New<v8::String>("test2 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test2)));
-  Nan::Set(target, Nan::New<v8::String>("test2 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test2, a)));
-  Nan::Set(target, Nan::New<v8::String>("test2 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test2, b)));
+  exports.Set("test2 sizeof", sizeof(test2));
+  exports.Set("test2 alignof", __alignof__(test2));
+  exports.Set("test2 offsetof a", offsetof(test2, a));
+  exports.Set("test2 offsetof b", offsetof(test2, b));
 
-  Nan::Set(target, Nan::New<v8::String>("test3 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test3)));
-  Nan::Set(target, Nan::New<v8::String>("test3 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test3)));
-  Nan::Set(target, Nan::New<v8::String>("test3 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test3, a)));
-  Nan::Set(target, Nan::New<v8::String>("test3 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test3, b)));
-  Nan::Set(target, Nan::New<v8::String>("test3 offsetof c").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test3, c)));
+  exports.Set("test3 sizeof", sizeof(test3));
+  exports.Set("test3 alignof", __alignof__(test3));
+  exports.Set("test3 offsetof a", offsetof(test3, a));
+  exports.Set("test3 offsetof b", offsetof(test3, b));
+  exports.Set("test3 offsetof c", offsetof(test3, c));
 
-  Nan::Set(target, Nan::New<v8::String>("test4 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test4)));
-  Nan::Set(target, Nan::New<v8::String>("test4 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test4)));
-  Nan::Set(target, Nan::New<v8::String>("test4 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test4, a)));
-  Nan::Set(target, Nan::New<v8::String>("test4 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test4, b)));
+  exports.Set("test4 sizeof", sizeof(test4));
+  exports.Set("test4 alignof", __alignof__(test4));
+  exports.Set("test4 offsetof a", offsetof(test4, a));
+  exports.Set("test4 offsetof b", offsetof(test4, b));
 
-  Nan::Set(target, Nan::New<v8::String>("test5 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test5)));
-  Nan::Set(target, Nan::New<v8::String>("test5 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test5)));
-  Nan::Set(target, Nan::New<v8::String>("test5 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test5, a)));
-  Nan::Set(target, Nan::New<v8::String>("test5 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test5, b)));
+  exports.Set("test5 sizeof", sizeof(test5));
+  exports.Set("test5 alignof", __alignof__(test5));
+  exports.Set("test5 offsetof a", offsetof(test5, a));
+  exports.Set("test5 offsetof b", offsetof(test5, b));
 
-  Nan::Set(target, Nan::New<v8::String>("test6 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test6)));
-  Nan::Set(target, Nan::New<v8::String>("test6 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test6)));
-  Nan::Set(target, Nan::New<v8::String>("test6 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test6, a)));
-  Nan::Set(target, Nan::New<v8::String>("test6 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test6, b)));
+  exports.Set("test6 sizeof", sizeof(test6));
+  exports.Set("test6 alignof", __alignof__(test6));
+  exports.Set("test6 offsetof a", offsetof(test6, a));
+  exports.Set("test6 offsetof b", offsetof(test6, b));
 
-  Nan::Set(target, Nan::New<v8::String>("test7 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test7)));
-  Nan::Set(target, Nan::New<v8::String>("test7 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test7)));
-  Nan::Set(target, Nan::New<v8::String>("test7 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test7, a)));
-  Nan::Set(target, Nan::New<v8::String>("test7 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test7, b)));
-  Nan::Set(target, Nan::New<v8::String>("test7 offsetof c").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test7, c)));
-  Nan::Set(target, Nan::New<v8::String>("test7 offsetof d").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test7, d)));
+  exports.Set("test7 sizeof", sizeof(test7));
+  exports.Set("test7 alignof", __alignof__(test7));
+  exports.Set("test7 offsetof a", offsetof(test7, a));
+  exports.Set("test7 offsetof b", offsetof(test7, b));
+  exports.Set("test7 offsetof c", offsetof(test7, c));
+  exports.Set("test7 offsetof d", offsetof(test7, d));
 
-  Nan::Set(target, Nan::New<v8::String>("test8 sizeof").ToLocalChecked(), Nan::New<v8::Number>(sizeof(test8)));
-  Nan::Set(target, Nan::New<v8::String>("test8 alignof").ToLocalChecked(), Nan::New<v8::Number>(__alignof__(test8)));
-  Nan::Set(target, Nan::New<v8::String>("test8 offsetof a").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test8, a)));
-  Nan::Set(target, Nan::New<v8::String>("test8 offsetof b").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test8, b)));
-  Nan::Set(target, Nan::New<v8::String>("test8 offsetof c").ToLocalChecked(), Nan::New<v8::Number>(offsetof(test8, c)));
+  exports.Set("test8 sizeof", sizeof(test8));
+  exports.Set("test8 alignof", __alignof__(test8));
+  exports.Set("test8 offsetof a", offsetof(test8, a));
+  exports.Set("test8 offsetof b", offsetof(test8, b));
+  exports.Set("test8 offsetof c", offsetof(test8, c));
+
+  return exports;
 }
 
 } // anonymous namespace
 
-NODE_MODULE(native_tests, Initialize);
+NODE_API_MODULE(native_tests, Initialize);

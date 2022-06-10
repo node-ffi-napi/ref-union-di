@@ -51,9 +51,9 @@ describe('Union', function () {
         , 'sval': 'string'
       })
 
-      assert.strictEqual(ref.types.int, U.fields.ival.type)
-      assert.strictEqual(ref.types.long, U.fields.lval.type)
-      assert.strictEqual(ref.coerceType('string'), U.fields.sval.type)
+      assert.strictEqual(ref.types.int, U.allFields.ival.type)
+      assert.strictEqual(ref.types.long, U.allFields.lval.type)
+      assert.strictEqual(ref.coerceType('string'), U.allFields.sval.type)
     })
 
   })
@@ -86,7 +86,7 @@ describe('Union', function () {
           assert.equal(expectedAlignment, unionType.alignment, 'test' + testNumber +
             ': __alignof__(): expected ' + unionType.alignment + ' to equal ' + expectedAlignment)
         })
-        Object.keys(unionType.fields).forEach(function (name) {
+        Object.keys(unionType.allFields).forEach(function (name) {
           if ('skip' == name) return;
           // these tests just verify the assumption that the
           // offset of every field is always 0
